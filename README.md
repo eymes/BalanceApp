@@ -1,5 +1,5 @@
 # BalanceApp
-Aplikacja symulująca konto bankowe, która posiada możliwość dodawania i usuwania transkacji wpływając przez to na saldo.
+Responsywna aplikacja symulująca konto bankowe, która posiada możliwość dodawania i usuwania transkacji wpływając przez to na saldo.
 
 
 ![screen1](https://github.com/user-attachments/assets/c69fc4e2-e5e9-4b43-90cb-bf13c6921481)
