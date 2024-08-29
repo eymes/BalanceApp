@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+        rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a0e9c2669b.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="balance">
+            <h1> Twoje Konto</h1>
+            <div class="circle">
+                <h2>Saldo:</h2>
+                <p class="avaible-money">0,00<span class="currency"> PLN </span></p>
+                <div class="controls">
+                    <button class="add-transaction"><i class="fas fa-plus"></i></button>
+                    <button class="delete-all"><i class="far fa-trash-alt"></i></button>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="transactions">
+            <div class="income-area">
+                <h3>Przychód:</h3>
+                <!-- <div class="transaction" id="0">
+                    <p class="transaction-name">+</p>
+                    <p class="transaction-amount">2000zł <button class="delete"><i class="fas fa-times"></i></button>
+                    </p>
+                </div>
+                <div class="transaction" id="0">
+                    <p class="transaction-name">+</p>
+                    <p class="transaction-amount">400zł <button class="delete"><i class="fas fa-times"></i></button>
+                    </p>
+                </div>
+                <div class="transaction" id="3">
+                    <p class="transaction-name">+</p>
+                    <p class="transaction-amount">4zł <button class="delete"><i class="fas fa-times"></i></button>
+                    </p>
+                </div> -->
+            </div>
+
+            <div class="expenses-area">
+                <h3>Wydatki:</h3>
+                <!-- <div class="transaction" id="1">
+                    <p class="transaction-name">-</p>
+                    <p class="transaction-amount">2000zł <button class="delete"><i class="fas fa-times"></i></button>
+                    </p>
+                </div>
+                <div class="transaction" id="2">
+                    <p class="transaction-name">-</p>
+                    <p class="transaction-amount">400zł <button class="delete"><i class="fas fa-times"></i></button>
+                    </p>
+                </div>
+                <div class="transaction" id="3">
+                    <p class="transaction-name">-</p>
+                    <p class="transaction-amount">4zł <button class="delete"><i class="fas fa-times"></i></button>
+                    </p>
+                </div> -->
+            </div>
+        </div>
+
+    </div>
+
+    <div class="popup-background" id="popupBackground"></div>
+    <div class="addTransactionPopup">
+        <h3>Dodaj nową transakcję: </h3>
+        <select id="category">
+            <option value="none" selected disabled></option>
+            <option value="income">+</option>
+            <option value="shopping">-</option>
+        </select>
+        <input type="number" placeholder="Kwota" id="amount">
+        <p class="error">Błąd!</p>
+        <div class="addPanel-buttons">
+            <button class="addButton">Dodaj</button>
+            <button class="cancelButton">Anuluj</button>
+        </div>
+    </div>
+
+    <div class="popup-background" id="popupBackground"></div>
+    <div class="deleteTransactionsPopup">
+        <h3>Czy na pewno chcesz usunąć wszystkie transakcje?</h3>
+        <div class="deletePanel-buttons">
+            <button class="deleteAllBtn">Usuń</button>
+            <button class="cancelAllBtn">Anuluj</button>
+        </div>
+    </div>
+
+
+    <script src="/js/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,402 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --first-color: #1a2c38;
+  --second-color: #fffff0;
+  --third-color: #557086;
+}
+
+body {
+  font-family: "Rubik", sans-serif;
+  color: var(--second-color);
+  background-color: var(--first-color);
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 35px;
+  font-size: 36px;
+}
+
+.circle {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+  width: 275px;
+  height: 275px;
+  background-color: transparent;
+  border: 1px solid var(--second-color);
+  border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 12px;
+  z-index: 1;
+}
+
+.avaible-money,
+h2 {
+  margin-bottom: 10px;
+  font-size: 26px;
+}
+
+.currency {
+  font-size: 22px;
+}
+
+.controls button {
+  margin: 20px 13px 0px 13px;
+  padding: 5px;
+  font-size: 20px;
+  border: none;
+  background-color: transparent;
+  color: var(--third-color);
+  cursor: pointer;
+  transition: 0.3s;
+}
+.controls button:hover {
+  color: var(--second-color);
+  transform: scale(1.1);
+}
+
+.transactions {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  top: -45px;
+  gap: 15%;
+  padding: 12px;
+  width: 300px;
+  background-color: var(--first-color);
+  border: 1px solid var(--second-color);
+  border-radius: 15px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 12px;
+  z-index: 10;
+}
+.transactions h3 {
+  font-size: 20px;
+}
+
+.transaction {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 8px;
+  width: 100%;
+}
+.transaction button {
+  padding: 3px 8px 3px 2px;
+  border: none;
+  color: tomato;
+  background-color: transparent;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+.transaction button:hover {
+  color: rgb(200, 71, 48);
+}
+.transaction i {
+  font-size: 16px;
+}
+
+.income-area,
+.expenses-area {
+  margin: 5px 8px;
+}
+
+.expenses-area .transaction-name {
+  margin-right: 4px;
+}
+
+.transaction-name,
+.transaction-amount {
+  margin-top: 7px;
+  font-size: 16px;
+}
+
+.popup-background {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+  -webkit-backdrop-filter: blur(1px);
+          backdrop-filter: blur(1px);
+  z-index: 14;
+}
+
+.addTransactionPopup {
+  display: none;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -30%);
+  width: 80%;
+  padding: 30px;
+  background-color: var(--first-color);
+  border: 1px solid var(--second-color);
+  border-radius: 15px;
+  z-index: 15;
+}
+.addTransactionPopup h3 {
+  display: flex;
+  justify-content: center;
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+.addTransactionPopup select,
+.addTransactionPopup input {
+  margin: 12px 0;
+  padding-left: 5px;
+  height: 30px;
+  color: var(--second-color);
+  font-size: 16px;
+  border-radius: 7.5px;
+  border: 1px solid var(--second-color);
+  background-color: transparent;
+}
+.addTransactionPopup select {
+  width: 40px;
+  cursor: pointer;
+}
+.addTransactionPopup select option {
+  background-color: var(--first-color);
+  color: var(--second-color);
+}
+.addTransactionPopup input {
+  width: 80%;
+}
+.addTransactionPopup input::-moz-placeholder {
+  color: var(--third-color);
+}
+.addTransactionPopup input::placeholder {
+  color: var(--third-color);
+}
+.addTransactionPopup .error {
+  display: none;
+  margin-bottom: 5px;
+  text-align: center;
+  color: tomato;
+}
+.addTransactionPopup .addPanel-buttons {
+  display: flex;
+  justify-content: center;
+}
+.addTransactionPopup .addPanel-buttons button {
+  margin: 8px 6px 0px 6px;
+  height: 30px;
+  width: 90px;
+  color: var(--third-color);
+  font-size: 16px;
+  border-radius: 7.5px;
+  border: 1px solid var(--second-color);
+  background-color: transparent;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.addTransactionPopup .addPanel-buttons button:hover {
+  color: var(--second-color);
+  transform: scale(1.1);
+}
+
+.deleteTransactionsPopup {
+  display: none;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -30%);
+  width: 80%;
+  padding: 30px;
+  background-color: var(--first-color);
+  border: 1px solid var(--second-color);
+  border-radius: 15px;
+  z-index: 15;
+}
+.deleteTransactionsPopup h3 {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+.deleteTransactionsPopup .deletePanel-buttons {
+  display: flex;
+  justify-content: center;
+}
+.deleteTransactionsPopup .deletePanel-buttons button {
+  margin: 8px 6px 0px 6px;
+  height: 30px;
+  width: 90px;
+  color: var(--third-color);
+  font-size: 16px;
+  border-radius: 7.5px;
+  border: 1px solid var(--second-color);
+  background-color: transparent;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.deleteTransactionsPopup .deletePanel-buttons button:hover {
+  color: var(--second-color);
+  transform: scale(1.1);
+}
+
+@media (min-width: 430px) {
+  .circle {
+    width: 295px;
+    height: 295px;
+  }
+  .transactions {
+    width: 320px;
+  }
+  .transaction-name,
+  .transaction-amount {
+    font-size: 18px;
+  }
+}
+@media (min-width: 576px) {
+  .circle {
+    margin-top: 35px;
+    width: 310px;
+    height: 310px;
+  }
+  .transactions {
+    width: 335px;
+  }
+  .transactions h3 {
+    font-size: 23px;
+  }
+  .transaction-name,
+  .transaction-amount {
+    font-size: 19px;
+  }
+  .addTransactionPopup,
+  .deleteTransactionsPopup {
+    max-width: 550px;
+  }
+  .addTransactionPopup h3,
+  .deleteTransactionsPopup h3 {
+    font-size: 22px;
+  }
+  .addTransactionPopup .addPanel-buttons button,
+  .addTransactionPopup .deletePanel-buttons button,
+  .deleteTransactionsPopup .addPanel-buttons button,
+  .deleteTransactionsPopup .deletePanel-buttons button {
+    margin-top: 12px;
+  }
+}
+@media (min-width: 768px) {
+  h1 {
+    font-size: 42px;
+  }
+  .circle {
+    margin-top: 40px;
+    width: 380px;
+    height: 380px;
+  }
+  .avaible-money,
+  h2 {
+    margin-bottom: 18px;
+    font-size: 30px;
+  }
+  .currency {
+    font-size: 26px;
+  }
+  .controls button {
+    font-size: 24px;
+  }
+  .transactions {
+    width: 420px;
+  }
+  .transactions h3 {
+    font-size: 26px;
+  }
+  .transaction-name,
+  .transaction-amount {
+    font-size: 20px;
+  }
+}
+@media (min-width: 1100px) {
+  h1 {
+    font-size: 44px;
+  }
+  .circle {
+    margin-top: 45px;
+    width: 420px;
+    height: 420px;
+  }
+  .avaible-money,
+  h2 {
+    margin-bottom: 18px;
+    font-size: 34px;
+  }
+  .currency {
+    font-size: 28px;
+  }
+  .controls button {
+    font-size: 26px;
+  }
+  .transaction i {
+    font-size: 18px;
+  }
+  .transactions {
+    width: 450px;
+  }
+  .transactions h3 {
+    font-size: 28px;
+  }
+  .transaction-name,
+  .transaction-amount {
+    font-size: 22px;
+  }
+  .addTransactionPopup,
+  .deleteTransactionsPopup {
+    max-width: 550px;
+  }
+  .addTransactionPopup h3,
+  .deleteTransactionsPopup h3 {
+    font-size: 26px;
+    margin-bottom: 20px;
+  }
+  .addTransactionPopup .addPanel-buttons button,
+  .addTransactionPopup .deletePanel-buttons button,
+  .deleteTransactionsPopup .addPanel-buttons button,
+  .deleteTransactionsPopup .deletePanel-buttons button {
+    margin: 12px 10px 0px 10px;
+    height: 45px;
+    width: 110px;
+    font-size: 20px;
+  }
+  .addTransactionPopup select,
+  .addTransactionPopup input {
+    margin-bottom: 20px;
+    height: 40px;
+    font-size: 18px;
+  }
+  .addTransactionPopup select {
+    width: 50px;
+  }
+  .addTransactionPopup input {
+    width: 80%;
+  }
+  .addTransactionPopup .error {
+    font-size: 20px;
+  }
+}/*# sourceMappingURL=style.css.map */
